@@ -225,7 +225,7 @@ func (s *Service) DeleteServiceItem(ctx context.Context, principal Principal, id
 	}
 	result, err := s.store.db.ExecContext(ctx, `DELETE FROM service_items WHERE service_id=?`, id)
 	if err != nil {
-		return catalogDeleteError(err)
+		return translateServiceError(err)
 	}
 	return requireAffected(result, ErrNotFound)
 }

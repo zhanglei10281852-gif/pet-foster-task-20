@@ -54,13 +54,6 @@ type Room struct {
 	UpdatedAt        time.Time `json:"updateTime"`
 }
 
-func catalogDeleteError(err error) error {
-	if err == nil {
-		return nil
-	}
-	return fmt.Errorf("delete catalog resource: %v", err)
-}
-
 type ServiceItem struct {
 	ID          int64     `json:"serviceId"`
 	Name        string    `json:"serviceName"`
